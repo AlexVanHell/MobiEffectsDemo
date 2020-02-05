@@ -14,6 +14,10 @@ https://docs.docker.com/compose/install/
 docker-compose up -d
 ```
 
+The `docker-compose.yml` file contains some environment variables to initialize the database with authentication.
+
+There is a file called `mongo-init.js` that is copied into the container that creates a not admin user. This new user can only read and write into database.
+
 ## Backend
 Nest JS is a progressive Node.js framework for building efficient, reliable and scalable server-side applications. https://nestjs.com/.
 
@@ -31,6 +35,7 @@ You can also build a docker container with this Node JS version already installe
 Every dependecy this project user can be located in `package.json` and can be installed with the following command:
 
 ```sh
+cd backend
 npm install
 ```
 
@@ -44,6 +49,16 @@ touch .env
 
 This file will contain the values for each variable acording to your own environment
 
+Your `.env` file should have exactly the following content to work in your localhost for this demo.
+
+```py
+DB_HOST=localhost
+DB_NAME=dbdemo
+DB_PORT=27017
+DB_USERNAME=demoUser
+DB_PASSWORD=d3m0p4ssw0rd
+```
+
 ### Run backend
 ```sh
 cd backend
@@ -54,6 +69,11 @@ npm start
 ```sh
 npm run start:dev
 ```
+
+#### Show Swagger Api
+This project is configured to generate documentation with Swagger where you can see all the relevant information of each API endpoint. Just open your browser and go to the next URL (Assuming the server is already running).
+
+http://localhost:3000/api
 
 ## Frontend
 Frontend is built with React.js and it uses the following dependecies too:
@@ -66,14 +86,32 @@ Frontend is built with React.js and it uses the following dependecies too:
 Same as the backend dependencies
 
 ```sh
+cd frontend
 npm install
+```
+
+### Create environment variables file
+
+Create a file called `.env.local`
+
+```sh
+touch .env.local
+```
+
+Your `.env.local` file should have exactly the following content to work in your localhost for this demo.
+
+```py
+PORT=4200
+SASS_PATH:src
 ```
 
 ### Run project
 
 ```sh
+cd frontend
 npm start
 ```
 
+Your browser will be opened at http://localhost:4200
 
 
