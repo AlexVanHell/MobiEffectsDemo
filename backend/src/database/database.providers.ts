@@ -4,8 +4,6 @@ import { settings } from '../config';
 const config = settings.db;
 const connectionUri = `mongodb://${config.username}:${config.password}@${config.host}:${config.port}/${config.name}`
 
-console.log(connectionUri);
-
 export const databaseProviders = [
   {
     provide: 'DATABASE_CONNECTION',

@@ -44,7 +44,7 @@ export const API_ERRORS = {
   BAD_REQUEST: {
     httpStatus: HttpStatusCodes.BAD_REQUEST,
     code: 1200,
-    message: 'validation.bad_request',
+    message: 'The request contains invalid syntax',
     description: 'Client sent a bad request (Invalid fields values, missing fields, etc.)'
   },
 
@@ -52,8 +52,8 @@ export const API_ERRORS = {
   SPACESHIP_NOT_FOUND: {
     httpStatus: HttpStatusCodes.NOT_FOUND,
     code: 2000,
-    message: 'companies.not_found',
-    description: 'The company was not found'
+    message: 'Spaceship not found',
+    description: 'The Spaceship was not fund'
   },
   SPACESHIP_EXISTS: {
     httpStatus: HttpStatusCodes.CONFLICT,
