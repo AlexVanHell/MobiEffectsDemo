@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiBody, ApiResponse } from '@nestjs/swagger';
 import { ApiExceptionResponse } from '../../../common/decorators/api-exception-response.decorator';
 import { ApiException } from '../../../common/types/api-exception.type';
@@ -73,7 +73,7 @@ export class SpaceshipsController {
     API_ERRORS.SPACESHIP_NOT_FOUND,
     API_ERRORS.SPACESHIP_EXISTS
   )
-  @Post()
+  @Put(':id')
   async update(
     @Param('id') id: string,
     @Body() data: CreateSpaceShipDto
