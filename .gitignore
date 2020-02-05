@@ -1,0 +1,5 @@
+# Npm packages
+/node_modules
+
+# Docker volumes
+/mongo-volume
